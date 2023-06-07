@@ -15,6 +15,7 @@ export default function Layout({ initState }) {
             __html: `window.initState=${JSON.stringify(initState)}`,
           }}
         />
+        <link href="/styles/style.css" rel="stylesheet" media="all" />
         <script defer src="/app.js" />
         <script defer src="/vendor.js" />
         <title>Document</title>

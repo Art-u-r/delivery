@@ -4,6 +4,7 @@ import NavBar from './UI/NavBar';
 import CustomerRegPage from './Pages/auth/customer/CustomerRegPage';
 import MainPage from './Pages/main/MainPage';
 import LoginPage from './Pages/login/LoginPage';
+import AccountPage from './Pages/AccountPage';
 
 
 export default function App({ orders, user }) {

@@ -1,16 +1,20 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import MainPage from './Pages/MainPage';
-import NavBar from './UI/NavBar';
+import NavBar from './ui/NavBar';
+import CustomerRegPage from './pages/auth/customer/CustomerRegPage';
+import MainPage from './pages/main/MainPage';
+import LoginPage from './pages/login/LoginPage';
 
-export default function App({orders}) {
-  // console.log('app==========', orders);
+export default function App({ orders, user }) {
   return (
-    <>
-    <NavBar />
+    <div>
+      <NavBar user={user} />
       <Routes>
         <Route path='/' element={<MainPage orders={orders} />} />
+        <Route path="/" element={<MainPage />} />
+        <Route path="/auth/join" element={<CustomerRegPage />} />
+        <Route path="/auth/login" element={<LoginPage />} />
       </Routes>
-    </>
-  )
+    </div>
+  );
 }

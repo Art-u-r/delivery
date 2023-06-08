@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function AccountCard({ order, deleteHandler }) {
+
   return (
     <div className="card-container">
       <div className="content-wrapper">

@@ -22,7 +22,7 @@ module.exports = {
           destination: '55.669006,37.515218',
           customerId: 2,
           courierId: 1,
-          isActive: false,
+          isActive: true,
         },
         {
           img: 'https://klike.net/uploads/posts/2019-06/medium/1559545632_4.jpg',

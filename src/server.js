@@ -8,6 +8,7 @@ import indexRouter from './routes/indexRouter';
 import apiRouter from './routes/apiRouter';
 import authRouter from './routes/authRouter';
 import apiAuthRouter from './routes/apiAuthRouter';
+import { userInsession } from './components/middlewares/sessionMiddleware';
 
 require('dotenv').config();
 
@@ -41,6 +42,8 @@ app.use((req, res, next) => {
   res.locals.path = req.originalUrl;
   next();
 });
+
+app.use(userInsession);
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);

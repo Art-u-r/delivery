@@ -7,7 +7,7 @@ authRouter.get('/join', (req, res) => {
   res.render('Layout', initState);
 });
 
-authRouter.get('/join/courier', (req, res) => {
+authRouter.get('/login', (req, res) => {
     const initState = {};
     res.render('Layout', initState);
   });

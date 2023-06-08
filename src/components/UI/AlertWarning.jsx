@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Alert } from 'reactstrap';
 
-function AlertExample({ isEmpty }) {
+function AlertWarning({ isEmpty }) {
   const [visible, setVisible] = useState(true);
 
   const onDismiss = () => setVisible(false);
@@ -13,4 +13,4 @@ function AlertExample({ isEmpty }) {
   );
 }
 
-export default AlertExample;
+export default AlertWarning;

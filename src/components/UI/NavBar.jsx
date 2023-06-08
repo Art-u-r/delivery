@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import React, { useState } from 'react';
 import {
@@ -9,6 +10,7 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+
 
 export default function NavBar({ user }) {
   const [collapsed, setCollapsed] = useState(true);

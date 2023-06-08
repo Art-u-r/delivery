@@ -1,12 +1,13 @@
 import express from 'express';
 import { Order } from '../../db/models';
 
-const router = express.Router();
+const orderRouter = express.Router();
 
-router.get('/', async (req, res) => {
+orderRouter.get('/', async (req, res) => {
   const orders = await Order.findAll();
   const initState = { orders };
   res.render('Layout', initState);
+  // console.log('++++', orders);
 });
 
-export default router;
+export default orderRouter;

@@ -1,14 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-} from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 
 export default function NavBar({ user }) {
   const [collapsed, setCollapsed] = useState(true);
@@ -35,7 +27,7 @@ export default function NavBar({ user }) {
               <p style={{ paddingLeft: '30px' }}> Здравствуй, {user.name}</p>
               <Nav navbar>
                 <NavItem>
-                  <NavLink href="/privat">Личный кабинет</NavLink>
+                  <NavLink href="/account">Личный кабинет</NavLink>
                 </NavItem>
                 <NavLink onClick={logoutHandler} style={{ cursor: 'pointer' }}>
                   Выйти

@@ -53,7 +53,7 @@ apiAccountRouter.post('/order', upload.single('img'), async (req, res) => {
       discount: req.body.discount,
       courierId: req.session.user.id,
     });
-    return res.status(200).json(newOrder);
+    return res.json(newOrder);
   } catch (e) {
     console.log(e);
     res.status(500).json({ message: 'Server error' });

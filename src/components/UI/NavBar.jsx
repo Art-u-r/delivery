@@ -13,7 +13,6 @@ import {
 export default function NavBar({ user }) {
   const [collapsed, setCollapsed] = useState(true);
   const toggleNavbar = () => setCollapsed(!collapsed);
-
   const logoutHandler = async (e) => {
     e.preventDefault();
     try {

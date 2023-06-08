@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner } from 'reactstrap';
+import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner, Alert } from 'reactstrap';
 import ReCAPTCHA from 'react-google-recaptcha';
 import AlertWarning from '../../../ui/AlertWarning';
 import AlertSuccess from '../../../ui/AlertSuccess';
@@ -12,6 +12,11 @@ export default function JoinPage() {
   const [confirm, setConfirm] = useState('');
   const [anim, setAnim] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [validLength, setValidLength] = useState(false);
+  const [lowerCase, setLowerCase] = useState(false);
+  const [upperCase, setUpperCase] = useState(false);
+  const [symbol, setSymbol] = useState(false);
+  const [num, setNum] = useState(false)
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen((prev) => !prev);
@@ -57,6 +62,55 @@ export default function JoinPage() {
       setConfirm('confirmation');
     }
   };
+
+  const changeHandler = (e) => {
+    if (e.target.value.length > 8) {
+      setValidLength(true);
+    } else {
+      setValidLength(false);
+    }
+    if (/[a-z]/.test(e.target.value)) {
+      setLowerCase(true);
+    } else {
+      setLowerCase(false);
+    }
+    if (/[A-Z]/.test(e.target.value)) {
+      setUpperCase(true);
+    } else {
+      setUpperCase(false);
+    }
+    if (/[!,.]/.test(e.target.value)) {
+      setSymbol(true);
+    } else {
+      setSymbol(false);
+    }
+    if (/[0-9]/.test(e.target.value)) {
+      setNum(true);
+    } else {
+      setNum(false);
+    }
+  };
+  const aStyle = {
+    color: validLength ? 'green' : 'red',
+    marginLeft: '5px',
+  };
+  const bStyle = {
+    color: lowerCase ? 'green' : 'red',
+    marginLeft: '5px',
+  };
+  const cStyle = {
+    color: upperCase ? 'green' : 'red',
+    marginLeft: '5px',
+  };
+  const dStyle = {
+    color: symbol ? 'green' : 'red',
+    marginLeft: '5px',
+  };
+  const eStyle = {
+    color: num ? 'green' : 'red',
+    marginLeft: '5px',
+  };
+
   return (
     <div style={{ margin: '30px', paddingLeft: '80px', paddingRight: '150px' }}>
       <h4 style={{ paddingBottom: '70px' }}>Зарегистрироваться</h4>
@@ -75,8 +129,22 @@ export default function JoinPage() {
           <Col md={6}>
             <FormGroup>
               <Label for="examplePassword">Пароль*</Label>
-              <Input id="examplePassword" name="password" type="password" />
+              <Input
+                onChange={changeHandler}
+                id="examplePassword"
+                name="password"
+                type="password"
+              />
             </FormGroup>
+            <Alert color="primary">
+              Password Validation
+              <div style={{ display: 'flex' }}>
+                <p style={aStyle}>8,</p> <p style={bStyle}>a-z,</p>
+                <p style={cStyle}> A-Z,</p>
+                <p style={dStyle}> !?*-_,</p>
+                <p style={eStyle}> 0-9,</p>
+              </div>
+            </Alert>
           </Col>
         </Row>
         <Row>

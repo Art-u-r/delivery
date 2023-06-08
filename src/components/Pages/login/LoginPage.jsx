@@ -1,22 +1,22 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner } from 'reactstrap';
+import React, { useEffect, useState, useRef } from 'react';
+import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner, Alert } from 'reactstrap';
 import ReCAPTCHA from 'react-google-recaptcha';
-import AlertWarning from '../../ui/AlertWarning';
-import AlertSuccess from '../../ui/AlertSuccess';
+import AlertWarning from '../../UI/AlertWarning';
+import AlertSuccess from '../../UI/AlertSuccess';
 
 export default function LoginPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [isEmpty, setIsEmpty] = useState('');
-  const [confirm, setConfirm] = useState('');
   const [anim, setAnim] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [validLength, setValidLength] = useState(false);
+  const [lowerCase, setLowerCase] = useState(false);
+  const [upperCse, setUpperCase] = useState(false);
+  const ref = useRef();
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsModalOpen((prev) => !prev);
-    }, 3000);
-    return () => clearTimeout(timer);
+    console.log(ref.current);
   }, []);
 
   const submitHandler = async (e) => {
@@ -72,7 +72,21 @@ export default function LoginPage() {
           <Col md={6}>
             <FormGroup>
               <Label for="examplePassword">Пароль*</Label>
-              <Input id="examplePassword" name="password" type="password" />
+              <Input
+                ref={ref}
+                onChange={changeHandler}
+                id="examplePassword"
+                name="password"
+                type="password"
+              />
+              <Alert color="primary">
+                <div style={{ display: 'flex' }}>
+                  <p style={aStyle}>8,</p> <p style={bStyle}>a-z,</p>
+                  <p style={cStyle}> A-Z,</p>
+                  <p style={dStyle}> !?*-_,</p>
+                  <p style={eStyle}> 0-9,</p>
+                </div>
+              </Alert>
             </FormGroup>
           </Col>
         </Row>

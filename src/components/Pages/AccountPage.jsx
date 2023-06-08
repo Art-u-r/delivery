@@ -5,7 +5,6 @@ import AccountCard from '../UI/AccountCard';
 
 export default function AccountPage({ orders }) {
   const [orderList, setOrderList] = useState(orders);
-//   console.log('----', orders);
 
   const deleteHandler = async (id) => {
     const result = await axios.delete(`/api/account/order/${id}`);

@@ -74,19 +74,10 @@ export default function LoginPage() {
               <Label for="examplePassword">Пароль*</Label>
               <Input
                 ref={ref}
-                onChange={changeHandler}
                 id="examplePassword"
                 name="password"
                 type="password"
               />
-              <Alert color="primary">
-                <div style={{ display: 'flex' }}>
-                  <p style={aStyle}>8,</p> <p style={bStyle}>a-z,</p>
-                  <p style={cStyle}> A-Z,</p>
-                  <p style={dStyle}> !?*-_,</p>
-                  <p style={eStyle}> 0-9,</p>
-                </div>
-              </Alert>
             </FormGroup>
           </Col>
         </Row>

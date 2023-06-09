@@ -61,4 +61,17 @@ apiAccountRouter.post('/order', upload.single('img'), async (req, res) => {
   // });
 });
 
+apiAccountRouter.get('/active', async (req, res) => {
+  try {
+    const filterOrders = await Order.findAll({
+      where: {
+        isActive: true,
+      },
+    });
+    res.status(200).json(filterOrders);
+  } catch (error) {
+    res.status(500).json({message: 'Тип ошибка сервера, но нет. Это ваши проблемы'})
+  }
+});
+
 export default apiAccountRouter;

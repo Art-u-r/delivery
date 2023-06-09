@@ -97,9 +97,9 @@ export default function LoginPage() {
             <span> Loading</span>
           </Button>
         ) : (
-          <Button color="warning" disabled={disabled}>
+          <button type="button" className="btn">
             Подтвердить
-          </Button>
+          </button>
         )}
       </Form>
     </div>

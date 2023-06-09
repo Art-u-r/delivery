@@ -74,7 +74,9 @@ body {
   background-color: var(--text);
   color: var(--text-color);
   font-family: 'Nunito', sans-serif;
-  border-radius: 30px;
+  border-radius: 10px;
+  border: transparent;
+  width: 140px;
 }
 
 .account-form {

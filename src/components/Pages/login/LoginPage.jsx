@@ -60,7 +60,7 @@ export default function LoginPage() {
 
   return (
     <div style={{ margin: '30px', paddingLeft: '80px', paddingRight: '150px' }}>
-      <h4 style={{ paddingBottom: '70px' }}>Войти под своей учетной записью</h4>
+      <h3 className="title">Войти под своей учетной записью</h3>
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={6}>
@@ -72,12 +72,7 @@ export default function LoginPage() {
           <Col md={6}>
             <FormGroup>
               <Label for="examplePassword">Пароль*</Label>
-              <Input
-                ref={ref}
-                id="examplePassword"
-                name="password"
-                type="password"
-              />
+              <Input ref={ref} id="examplePassword" name="password" type="password" />
             </FormGroup>
           </Col>
         </Row>
@@ -97,9 +92,9 @@ export default function LoginPage() {
             <span> Loading</span>
           </Button>
         ) : (
-          <Button color="warning" disabled={disabled}>
+          <button type="button" className="btn">
             Подтвердить
-          </Button>
+          </button>
         )}
       </Form>
     </div>

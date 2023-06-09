@@ -8,7 +8,7 @@ import axios from 'axios';
 export default function CardOrder({order, user, setAllOrders}) {
   const [changeState, setchangeState] = useState(false);
 
-  const changeHandler = async (id) => {
+  const editHandler = async (id) => {
     try {
       const response = await axios.patch('/api/editState', {id});
       if (response.status === 200) {
@@ -36,7 +36,7 @@ export default function CardOrder({order, user, setAllOrders}) {
       <Card.Body>
       {user ? 
       (
-        <Button onClick={()=>changeHandler(order.id)} variant="link">Купить</Button>
+        <Button onClick={()=>editHandler(order.id)} variant="link">Купить</Button>
       ) : (
         <>
           <Button

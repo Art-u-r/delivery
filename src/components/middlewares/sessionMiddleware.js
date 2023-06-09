@@ -4,3 +4,10 @@ export const userInsession = (req, res, next) => {
   }
   next();
 };
+
+export const authCheck = (req, res, next) => {
+  if (!req.session.user) {
+    return res.redirect('/error');
+  }
+  next();
+};

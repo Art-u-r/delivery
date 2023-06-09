@@ -73,7 +73,7 @@ export default function MainPage({ orders, user }) {
         <Map
           defaultState={{
             center: [55.75, 37.57],
-            zoom: 9,
+            zoom: 11,
             controls: ['zoomControl', 'fullscreenControl'],
           }}
           style={{ width: '700px', height: '500px', margin: '10px auto' }}
@@ -92,7 +92,7 @@ export default function MainPage({ orders, user }) {
           <TrafficControl options={{ float: 'right' }} />
           <TypeSelector options={{ float: 'right' }} />
           <Circle
-            geometry={[[55.706529, 37.597009], 5000]}
+            geometry={[[55.706529, 37.597009], 3000]}
             options={{
               draggable: true,
               fillColor: '#DB709377',

@@ -12,8 +12,7 @@ import apiAccountRouter from './routes/apiAccountRouter';
 
 import authRouter from './routes/authRouter';
 import apiAuthRouter from './routes/apiAuthRouter';
-import { userInsession } from './components/middlewares/sessionMiddleware';
-
+import { authCheck, userInsession } from './components/middlewares/sessionMiddleware';
 
 require('dotenv').config();
 
@@ -54,10 +53,9 @@ app.use('/', indexRouter);
 app.use('/api', apiRouter);
 
 app.use('/account', orderRouter);
-app.use("/api/account", apiAccountRouter)
+app.use('/api/account', authCheck, apiAccountRouter);
 
 app.use('/auth', authRouter);
 app.use('/api/auth', apiAuthRouter);
-
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

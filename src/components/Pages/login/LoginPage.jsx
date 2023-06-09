@@ -15,10 +15,6 @@ export default function LoginPage() {
   const [upperCse, setUpperCase] = useState(false);
   const ref = useRef();
 
-  useEffect(() => {
-    console.log(ref.current);
-  }, []);
-
   const submitHandler = async (e) => {
     e.preventDefault();
     try {

@@ -18,7 +18,7 @@ export default function CardOrder({order, user, setAllOrders}) {
     } catch (error) {
       console.log(error.response.data.message);
     }
-  } 
+  }
 
   return (
     <Card style={{ width: '18rem' }}>

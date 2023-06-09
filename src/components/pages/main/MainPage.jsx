@@ -56,7 +56,9 @@ export default function MainPage({ orders, user }) {
                 src={`${food.img}`}
               />
               <Card.Body>
-                <Card.Text>{food.name}</Card.Text>
+                <Card.Text>Название: {food.name}</Card.Text>
+                <Card.Text>Цена: {food.price} руб.</Card.Text>
+                <Card.Text>Cкидка {food.discount}%</Card.Text>
               </Card.Body>
             </Card>
           </Col>

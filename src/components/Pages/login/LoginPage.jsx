@@ -92,7 +92,7 @@ export default function LoginPage() {
             <span> Loading</span>
           </Button>
         ) : (
-          <button type="button" className="btn">
+          <button type="submit" className="btn">
             Подтвердить
           </button>
         )}

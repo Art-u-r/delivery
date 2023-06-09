@@ -16,7 +16,7 @@ export default function JoinPage() {
   const [lowerCase, setLowerCase] = useState(false);
   const [upperCase, setUpperCase] = useState(false);
   const [symbol, setSymbol] = useState(false);
-  const [num, setNum] = useState(false)
+  const [num, setNum] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen((prev) => !prev);
@@ -113,7 +113,7 @@ export default function JoinPage() {
 
   return (
     <div style={{ margin: '30px', paddingLeft: '80px', paddingRight: '150px' }}>
-      <h4 style={{ paddingBottom: '70px' }}>Зарегистрироваться</h4>
+      <h3 className="title">Зарегистрироваться</h3>
       <Form onSubmit={submitHandler}>
         <Row>
           <Col md={6}>
@@ -165,9 +165,9 @@ export default function JoinPage() {
             <span> Loading</span>
           </Button>
         ) : (
-          <Button color="warning" disabled={disabled}>
+          <button type="submit" className="btn">
             Подтвердить
-          </Button>
+          </button>
         )}
       </Form>
     </div>

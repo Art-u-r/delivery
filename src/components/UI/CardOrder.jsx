@@ -36,7 +36,7 @@ export default function CardOrder({order, user, setAllOrders}) {
       <Card.Body>
       {user ? 
       (
-        <Button onClick={()=>editHandler(order.id)} variant="link">Купить</Button>
+        <Button onClick={()=>editHandler(order.id)} variant="link" disabled={changeState}>Купить</Button>
       ) : (
         <>
           <Button

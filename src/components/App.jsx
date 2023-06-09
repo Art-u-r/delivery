@@ -15,7 +15,7 @@ export default function App({ orders, user }) {
 
         <Route path="/account" element={<AccountPage orders={orders} />} />
 
-        <Route path='/' element={<MainPage orders={orders} />} />
+        <Route path='/' element={<MainPage orders={orders} user={user} />} />
         <Route path="/auth/join" element={<CustomerRegPage />} />
         <Route path="/auth/login" element={<LoginPage />} />
 

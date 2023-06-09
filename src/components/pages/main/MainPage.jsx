@@ -2,37 +2,8 @@ import React, { useState } from 'react'
 import { Circle, GeolocationControl, Map, Placemark, RulerControl, TrafficControl, TypeSelector, YMaps } from '@pbe/react-yandex-maps';
 import CardOrder from '../../UI/CardOrder';
 
-
-
-export default function MainPage({orders}) {
+export default function MainPage({orders, user}) {
   const [allOrders, setAllOrders] = useState(orders);
-
-  async function geocodeAddress(address) {
-    try {
-      const response = await fetch(`https://geocode-maps.yandex.ru/1.x/?apikey=c509d972-b6aa-48a2-8472-e6a254b6e5d2&format=json&geocode=${encodeURIComponent(address)}`);
-      const data = await response.json();
-      
-      // Парсинг координат из ответа
-      const coordinates = data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ');
-      const longitude = parseFloat(coordinates[0]);
-      const latitude = parseFloat(coordinates[1]);
-      
-      return [latitude, longitude];
-    } catch (error) {
-      console.error('Ошибка при геокодировании адреса:', error);
-      return null;
-    }
-  }
-
-  const address = 'Чечня, Россия';
-
-  async function getLocation() {
-    const coordinates = await geocodeAddress(address);
-    console.log(coordinates); // Вывод координат в формате [широта, долгота]
-}
-
-getLocation();
-
   
   return (
     <>
@@ -78,7 +49,7 @@ getLocation();
   </Map>
   </YMaps>
     {allOrders.map((order) => (
-      <CardOrder key={order.id} order={order} />
+      <CardOrder key={order.id} order={order} user={user} setAllOrders={setAllOrders}/>
     ))}
     </>
   )

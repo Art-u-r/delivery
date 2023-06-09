@@ -101,6 +101,22 @@ body {
   color: var(--input-text);
 }
 
+.account-form input[type='file']::file-selector-button {
+  background-color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--input-text);
+  border: transparent;
+  border-radius: 20px;
+  padding: auto;
+}
+
+.account-form input[type='file'] {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .form-text {
   font-size: 16px;
   padding-top: 20px;

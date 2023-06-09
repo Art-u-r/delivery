@@ -41,6 +41,7 @@ export default function CardOrder({ order, user, setAllOrders }) {
             className="btn-common"
             id="UncontrolledPopover"
             onClick={() => editHandler(order.id)}
+            disabled={changeState}
           >
             Выкупить
           </button>

@@ -209,3 +209,21 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
 }
+
+.search input[type='text'] {
+  border-radius: 20px;
+  background-color: var(--text);
+  width: 350px;
+  border: transparent;
+  margin-left: 30px;
+  padding-left: 30px;
+  height: 35px;
+}
+
+.search-submit {
+  border-radius: 20px;
+  border: transparent;
+  padding: 0 20px 0 20px;
+  margin: 20px 0 20px 0;
+  height: 35px;
+}

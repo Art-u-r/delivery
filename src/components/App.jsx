@@ -5,10 +5,16 @@ import CustomerRegPage from './Pages/auth/customer/CustomerRegPage';
 import MainPage from './Pages/main/MainPage';
 import LoginPage from './Pages/login/LoginPage';
 import AccountPage from './Pages/AccountPage';
+import MainPageContextProvider from './context/MainPageContext';
+import CustomerRegPageContextProvider from './context/CustomerRegPageContext';
+import LoginPageContextProvider from './context/LoginPageContext';
 
 
 export default function App({ orders, user }) {
   return (
+    <MainPageContextProvider orders={orders}>
+      <CustomerRegPageContextProvider>
+        <LoginPageContextProvider>
     <div>
       <NavBar user={user} />
       <Routes>
@@ -21,5 +27,8 @@ export default function App({ orders, user }) {
 
       </Routes>
     </div>
+    </LoginPageContextProvider>
+      </CustomerRegPageContextProvider>
+    </MainPageContextProvider>
   );
 }

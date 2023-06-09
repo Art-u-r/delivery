@@ -4,19 +4,31 @@ import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner, Alert } from 
 import ReCAPTCHA from 'react-google-recaptcha';
 import AlertWarning from '../../../ui/AlertWarning';
 import AlertSuccess from '../../../ui/AlertSuccess';
+import { regPageContext } from '../../../context/CustomerRegPageContext';
 
 export default function JoinPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const [isEmpty, setIsEmpty] = useState('');
-  const [confirm, setConfirm] = useState('');
-  const [anim, setAnim] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [validLength, setValidLength] = useState(false);
-  const [lowerCase, setLowerCase] = useState(false);
-  const [upperCase, setUpperCase] = useState(false);
-  const [symbol, setSymbol] = useState(false);
-  const [num, setNum] = useState(false);
+    const {
+      disabled,
+      setDisabled,
+      isEmpty,
+      setIsEmpty,
+      confirm,
+      setConfirm,
+      anim,
+      setAnim,
+      success,
+      setSuccess,
+      validLength,
+      setValidLength,
+      lowerCase,
+      setLowerCase,
+      upperCase,
+      setUpperCase,
+      symbol,
+      setSymbol,
+      num,
+      setNum,
+    } = regPageContext();
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen((prev) => !prev);
@@ -118,17 +130,17 @@ export default function JoinPage() {
         <Row>
           <Col md={6}>
             <FormGroup>
-              <Label for="text">Имя*</Label>
+              <Label for="text" style={{color:"white"}}>Имя*</Label>
               <Input id="exampleText" name="name" type="text" />
             </FormGroup>
             <FormGroup>
-              <Label for="exampleEmail">Email*</Label>
+              <Label for="exampleEmail" style={{color:"white"}}>Email*</Label>
               <Input id="exampleEmail" name="email" type="email" />
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
-              <Label for="examplePassword">Пароль*</Label>
+              <Label for="examplePassword" style={{color:"white"}}>Пароль*</Label>
               <Input
                 onChange={changeHandler}
                 id="examplePassword"
@@ -150,7 +162,7 @@ export default function JoinPage() {
         <Row>
           <Col md={1} />
         </Row>
-        <p>Я - Курьер</p>
+        <p style={{color:"white"}}>Я - Курьер</p>
         <input type="checkbox" onChange={handler} name={confirm} />
         <ReCAPTCHA
           sitekey="6LcVdHImAAAAANSNii7Zg0fi4zPqOT4M_BlHWjCY"

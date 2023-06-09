@@ -4,15 +4,25 @@ import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner, Alert } from 
 import ReCAPTCHA from 'react-google-recaptcha';
 import AlertWarning from '../../UI/AlertWarning';
 import AlertSuccess from '../../UI/AlertSuccess';
+import { loginPageContext } from '../../context/LoginPageContext';
 
 export default function LoginPage() {
-  const [disabled, setDisabled] = useState(true);
-  const [isEmpty, setIsEmpty] = useState('');
-  const [anim, setAnim] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [validLength, setValidLength] = useState(false);
-  const [lowerCase, setLowerCase] = useState(false);
-  const [upperCse, setUpperCase] = useState(false);
+const {
+    disabled,
+    setDisabled,
+    isEmpty,
+    setIsEmpty,
+    anim,
+    setAnim,
+    success,
+    setSuccess,
+    validLength,
+    setValidLength,
+    lowerCase,
+    setLowerCase,
+    upperCse,
+    setUpperCase,
+  } = loginPageContext();
   const ref = useRef();
 
   const submitHandler = async (e) => {
@@ -62,13 +72,13 @@ export default function LoginPage() {
         <Row>
           <Col md={6}>
             <FormGroup>
-              <Label for="exampleEmail">Email*</Label>
+              <Label for="exampleEmail" style={{color:"white"}}>Email*</Label>
               <Input id="exampleEmail" name="email" type="email" />
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
-              <Label for="examplePassword">Пароль*</Label>
+              <Label for="examplePassword" style={{color:"white"}}>Пароль*</Label>
               <Input ref={ref} id="examplePassword" name="password" type="password" />
             </FormGroup>
           </Col>

@@ -17,18 +17,15 @@ export default function AccountForm({ setOrderList }) {
     data.append('discount', formData.discount);
     data.append('destination', formData.destination);
     data.append('img', formData.img);
-    console.log('formData', formData);
     const response = await fetch(`/api/account/order/`, {
       method: 'POST',
       'Content-Type': 'multipart/form-data',
       body: data,
     });
-    console.log('response', response.data);
-    // if (response.status === 200) {
-    // console.log('response', response);
-    setOrderList((prev) => [...prev, response.data]);
-    // alert('Заказ добавлен');
-    // }
+    if (response.status === 200) {
+      const order = await response.json();
+      setOrderList((prev) => [...prev, order]);
+    }
   };
 
   return (

@@ -1,33 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import { PopoverBody, PopoverHeader, UncontrolledPopover } from 'reactstrap';
 import axios from 'axios';
 
-export default function CardOrder({order, user, setAllOrders}) {
+export default function CardOrder({ order, user, setAllOrders }) {
   const [changeState, setchangeState] = useState(false);
 
   const editHandler = async (id) => {
     try {
-      const response = await axios.patch('/api/editState', {id});
+      const response = await axios.patch('/api/editState', { id });
       if (response.status === 200) {
-        setAllOrders((prev) => prev.map((el) => el.id === id ? response.data : el)) 
+        setAllOrders((prev) => prev.map((el) => (el.id === id ? response.data : el)));
         setchangeState(true);
-      } 
+      }
     } catch (error) {
       console.log(error.response.data.message);
     }
-  }
+  };
 
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={`${order.img}`} />
       <Card.Body>
         <Card.Title>{order.name}</Card.Title>
-        <Card.Text>
-          {order.price} рублей
-        </Card.Text>
+        <Card.Text>{order.price} рублей</Card.Text>
       </Card.Body>
       <ListGroup className="list-group-flush">
         <ListGroup.Item>Cкидка {order.discount}%</ListGroup.Item>
@@ -36,30 +34,33 @@ export default function CardOrder({order, user, setAllOrders}) {
       <Card.Body>
       {user ? 
       (
-        <Button onClick={()=>editHandler(order.id)} variant="link" disabled={changeState}>Купить</Button>
-      ) : (
-        <>
-          <Button
-            id="UncontrolledPopover"
+          <button
             type="button"
+            className="btn-common"
+            id="UncontrolledPopover"
+            onClick={() => editHandler(order.id)}
           >
-            Купить
-          </Button>
-          <UncontrolledPopover
-            placement="bottom"
-            target="UncontrolledPopover"
-          >
-            <PopoverHeader>
-              Доступно для зарегистрированных пользователей
-            </PopoverHeader>
-            <PopoverBody>
-              Для покупки, пожалуйста, войдите в свой личный кабинет
-            </PopoverBody>
-          </UncontrolledPopover>
-        </>
-        )
-      }
+            Выкупить
+          </button>
+        ) : (
+          // <button type="button" className="btn-common">
+          //   Куп
+          // </button>
+          <>
+            {/* <Button id="UncontrolledPopover" type="button">
+              Купить
+            </Button> */}
+            <button type="button" className="btn-common" id="UncontrolledPopover">
+              Выкупить
+            </button>
+
+            <UncontrolledPopover placement="bottom" target="UncontrolledPopover">
+              <PopoverHeader>Доступно для зарегистрированных пользователей</PopoverHeader>
+              <PopoverBody>Для покупки, пожалуйста, войдите в свой личный кабинет</PopoverBody>
+            </UncontrolledPopover>
+          </>
+        )}
       </Card.Body>
     </Card>
-  )
+  );
 }

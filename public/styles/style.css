@@ -74,7 +74,9 @@ body {
   background-color: var(--text);
   color: var(--text-color);
   font-family: 'Nunito', sans-serif;
-  border-radius: 30px;
+  border-radius: 10px;
+  border: transparent;
+  width: 140px;
 }
 
 .account-form {
@@ -99,6 +101,22 @@ body {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   color: var(--input-text);
+}
+
+.account-form input[type='file']::file-selector-button {
+  background-color: var(--text);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: var(--input-text);
+  border: transparent;
+  border-radius: 20px;
+  padding: auto;
+}
+
+.account-form input[type='file'] {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .form-text {
@@ -145,7 +163,7 @@ body {
   height: 150px;
   background-color: var(--text-color);
   border-radius: 30px;
-  margin-left: 40px;
+  margin: 20px 0 20px 40px;
 }
 
 .wrapper {

@@ -32,10 +32,8 @@ export default function CardOrder({ order, user, setAllOrders }) {
         <ListGroup.Item>Адрес: {order.destination}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
-        {user ? (
-          // <Button className="btn-card" onClick={() => editHandler(order.id)} variant="link">
-          //   Купить
-          // </Button>
+      {user ? 
+      (
           <button
             type="button"
             className="btn-common"

@@ -24,6 +24,7 @@ export default function LoginPage() {
     try {
       setAnim(true);
       const data = Object.fromEntries(new FormData(e.target));
+      console.log(data);
       const response = await axios.post('/api/auth/login', data);
       if (response.data === 'OK') {
         setSuccess('Успешная аутентификация');

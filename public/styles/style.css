@@ -79,6 +79,11 @@ body {
   width: 140px;
 }
 
+.btn-common[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .account-form {
   width: 525px;
   height: 645px;

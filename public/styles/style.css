@@ -145,7 +145,7 @@ body {
   height: 150px;
   background-color: var(--text-color);
   border-radius: 30px;
-  margin-left: 40px;
+  margin: 20px 0 20px 40px;
 }
 
 .wrapper {

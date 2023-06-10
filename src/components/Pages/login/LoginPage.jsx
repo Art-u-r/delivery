@@ -4,15 +4,25 @@ import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner, Alert } from 
 import ReCAPTCHA from 'react-google-recaptcha';
 import AlertWarning from '../../UI/AlertWarning';
 import AlertSuccess from '../../UI/AlertSuccess';
+import { loginPageContext } from '../../context/LoginPageContext';
 
 export default function LoginPage() {
-  const [disabled, setDisabled] = useState(true);
-  const [isEmpty, setIsEmpty] = useState('');
-  const [anim, setAnim] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [validLength, setValidLength] = useState(false);
-  const [lowerCase, setLowerCase] = useState(false);
-  const [upperCse, setUpperCase] = useState(false);
+const {
+    disabled,
+    setDisabled,
+    isEmpty,
+    setIsEmpty,
+    anim,
+    setAnim,
+    success,
+    setSuccess,
+    validLength,
+    setValidLength,
+    lowerCase,
+    setLowerCase,
+    upperCse,
+    setUpperCase,
+  } = loginPageContext();
   const ref = useRef();
 
   useEffect(() => {

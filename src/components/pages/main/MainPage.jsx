@@ -12,11 +12,17 @@ import {
 import axios from 'axios';
 import { Card, Col, Row } from 'react-bootstrap';
 import CardOrder from '../../UI/CardOrder';
+import { mPageContext } from '../../context/MainPageContext';
 
 export default function MainPage({ orders, user }) {
-  const [allOrders, setAllOrders] = useState(orders);
-  const [inpSearch, setInpSearch] = useState('');
-  const [searchFood, setSearchFood] = useState([]);
+  const {
+    allOrders,
+    setAllOrders,
+    inpSearch,
+    setInpSearch,
+    searchFood,
+    setSearchFood,
+  } = mPageContext();
 
   const changeHandler = (e) => {
     setInpSearch(e.target.value);

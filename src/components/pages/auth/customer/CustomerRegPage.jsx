@@ -4,19 +4,31 @@ import { Form, Button, Col, FormGroup, Input, Label, Row, Spinner, Alert } from 
 import ReCAPTCHA from 'react-google-recaptcha';
 import AlertWarning from '../../../ui/AlertWarning';
 import AlertSuccess from '../../../ui/AlertSuccess';
+import { regPageContext } from '../../../context/CustomerRegPageContext';
 
 export default function JoinPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const [isEmpty, setIsEmpty] = useState('');
-  const [confirm, setConfirm] = useState('');
-  const [anim, setAnim] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [validLength, setValidLength] = useState(false);
-  const [lowerCase, setLowerCase] = useState(false);
-  const [upperCase, setUpperCase] = useState(false);
-  const [symbol, setSymbol] = useState(false);
-  const [num, setNum] = useState(false);
+    const {
+      disabled,
+      setDisabled,
+      isEmpty,
+      setIsEmpty,
+      confirm,
+      setConfirm,
+      anim,
+      setAnim,
+      success,
+      setSuccess,
+      validLength,
+      setValidLength,
+      lowerCase,
+      setLowerCase,
+      upperCase,
+      setUpperCase,
+      symbol,
+      setSymbol,
+      num,
+      setNum,
+    } = regPageContext();
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsModalOpen((prev) => !prev);

@@ -72,13 +72,13 @@ const {
         <Row>
           <Col md={6}>
             <FormGroup>
-              <Label for="exampleEmail">Email*</Label>
+              <Label for="exampleEmail" style={{color:"white"}}>Email*</Label>
               <Input id="exampleEmail" name="email" type="email" />
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
-              <Label for="examplePassword">Пароль*</Label>
+              <Label for="examplePassword" style={{color:"white"}}>Пароль*</Label>
               <Input ref={ref} id="examplePassword" name="password" type="password" />
             </FormGroup>
           </Col>

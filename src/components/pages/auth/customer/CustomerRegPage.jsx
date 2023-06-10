@@ -130,17 +130,17 @@ export default function JoinPage() {
         <Row>
           <Col md={6}>
             <FormGroup>
-              <Label for="text">Имя*</Label>
+              <Label for="text" style={{color:"white"}}>Имя*</Label>
               <Input id="exampleText" name="name" type="text" />
             </FormGroup>
             <FormGroup>
-              <Label for="exampleEmail">Email*</Label>
+              <Label for="exampleEmail" style={{color:"white"}}>Email*</Label>
               <Input id="exampleEmail" name="email" type="email" />
             </FormGroup>
           </Col>
           <Col md={6}>
             <FormGroup>
-              <Label for="examplePassword">Пароль*</Label>
+              <Label for="examplePassword" style={{color:"white"}}>Пароль*</Label>
               <Input
                 onChange={changeHandler}
                 id="examplePassword"
@@ -162,7 +162,7 @@ export default function JoinPage() {
         <Row>
           <Col md={1} />
         </Row>
-        <p>Я - Курьер</p>
+        <p style={{color:"white"}}>Я - Курьер</p>
         <input type="checkbox" onChange={handler} name={confirm} />
         <ReCAPTCHA
           sitekey="6LcVdHImAAAAANSNii7Zg0fi4zPqOT4M_BlHWjCY"

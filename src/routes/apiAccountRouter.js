@@ -34,9 +34,6 @@ apiAccountRouter.post('/order', upload.single('img'), async (req, res) => {
       return res.status(400).json({ message: 'File not found' });
     }
 
-    // console.log('body===, ', req.body);
-    // console.log('file===, ', req.file);
-
     // создаем имя файла с расширением webp и привязкой к дате
     const name = `${Date.now()}.webp`;
     // создаем буфер с помощью sharp

@@ -25,10 +25,6 @@ const {
   } = loginPageContext();
   const ref = useRef();
 
-  useEffect(() => {
-    console.log(ref.current);
-  }, []);
-
   const submitHandler = async (e) => {
     e.preventDefault();
     try {

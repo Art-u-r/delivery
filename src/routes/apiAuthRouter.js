@@ -68,7 +68,7 @@ apiAuthRouter.post('/login', async (req, res) => {
   if (findedUser === null) {
     return res.sendStatus(408);
   }
-  console.log((await bcrypt.compare(password, findedUser.password)));
+  console.log(await bcrypt.compare(password, findedUser.password));
   if (!(await bcrypt.compare(password, findedUser.password))) {
     return res.sendStatus(409);
   }
